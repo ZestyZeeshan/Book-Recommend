@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender System</title>
+    <!--  Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+</head>
+<style>
+    .text-white{
+        color: azure;
+    }
+         
+    
+</style>
+<body style = "background-color: black;">
+    <!--navigation bar using nav tag-->
+    <nav class="navbar" style="background-color: aqua;">
+        <!--navbar bootstrap ka class hai-->
+        <a class="navbar-brand">My Books Recommender</a>
+        <!--menu-->
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a>Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><!--only col-12 likhne se bss 1 ke neeche 1 ajata hai so hmm wo ni krenge (col-md-12 use kar rhe hai)-->
+                <h2 class="text-white" style="font-size: 50px;">TOP 50 BOOKS</h2>
+            </div>
+
+            {% for i in range(book_name | length) %}
+            <div class="col-md-3" style="margin-top: 30px;"><!--har row me 4 display karna chahte-->
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{ image[i] }}">
+                        <h3 class="text-white">{{ book_name[i] }}</h3><!--book name-->
+                        <p class="text-white">{{ author[i] }}</p><!--author-->
+                        <p class="text-white">VOTES-{{ votes[i] }}</p>
+                        <p class="text-white">RATING-{{ rating[i] }}</p>
+
+                    </div>
+                </div>
+               </div>
+            {% endfor %}
+
+               
+
+
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
